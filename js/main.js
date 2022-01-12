@@ -1,7 +1,11 @@
+var nutTinhTien = document.querySelector('#nutTinhTien');
+nutTinhTien.onclick = tinhTien;
+
 function tinhTien() {
   var xuatGiaTien = document.querySelector("#xuatTien");
 
   var soKM = document.querySelector("#soKM").value;
+  soKM = parseFloat(soKM);
   if (soKM === "") {
     xuatGiaTien.innerHTML = "Number must be filled out";
     document.querySelector("#soKM").focus();
@@ -9,6 +13,7 @@ function tinhTien() {
   }
 
   var thoiGianCho = document.querySelector("#thoiGianCho").value;
+  thoiGianCho = parseFloat(thoiGianCho);
   if (thoiGianCho === "") {
     document.querySelector("#thoiGianCho").focus();
     alert("Waiting time must be filled out");
@@ -31,7 +36,7 @@ function tinhTien() {
       } else if (soKM > 1 && soKM <= 20) {
         tongTien = 8000 + (soKM - 1) * 12000 + thoiGianCho * 2000;
       } else if (soKM >= 21) {
-        tongTien = 8000 + (20 * 12000) + (soKM - 21) * 10000 + thoiGianCho * 2000;
+        tongTien = 8000 + 20 * 12000 + (soKM - 21) * 10000 + thoiGianCho * 2000;
       }
       break;
     case "Uber SUV":
@@ -41,7 +46,7 @@ function tinhTien() {
       } else if (soKM > 1 && soKM <= 20) {
         tongTien = 9000 + (soKM - 1) * 14000 + thoiGianCho * 3000;
       } else if (soKM >= 21) {
-        tongTien = 9000 + (20 * 14000) + (soKM - 21) * 12000 + thoiGianCho * 3000;
+        tongTien = 9000 + 20 * 14000 + (soKM - 21) * 12000 + thoiGianCho * 3000;
       }
       break;
     case "Uber Black":
@@ -51,19 +56,21 @@ function tinhTien() {
       } else if (soKM > 1 && soKM <= 20) {
         tongTien = 10000 + (soKM - 1) * 16000 + thoiGianCho * 4000;
       } else if (soKM >= 21) {
-        tongTien = 9000 + (20 * 16000) + (soKM - 21) * 14000 + thoiGianCho * 4000;
+        tongTien = 9000 + 20 * 16000 + (soKM - 21) * 14000 + thoiGianCho * 4000;
       }
       break;
   }
 
-  xuatGiaTien.innerHTML = tongTien;
+  xuatGiaTien.innerHTML = parseFloat(tongTien);
   return tongTien;
 }
 
-function inHoaDon() {
+
+// var nutInHoaDon = document.querySelector('#nutInHoaDon');
+// nutInHoaDon.onclick = inHoaDon;
+document.querySelector('#nutInHoaDon').onclick =  function() {
   var soKM = document.querySelector("#soKM").value;
-  if (soKM === "") {
-    xuatGiaTien.innerHTML = "Number must be filled out";
+  if (soKM === "") { 
     document.querySelector("#soKM").focus();
     return false;
   }
@@ -71,23 +78,24 @@ function inHoaDon() {
   var thoiGianCho = document.querySelector("#thoiGianCho").value;
   if (thoiGianCho === "") {
     document.querySelector("#thoiGianCho").focus();
-    alert("Waiting time must be filled out");
     return false;
   }
+  var getDate = new Date();
+  var date = getDate.getDate();
+  var month = getDate.getMonth();
+  var year = getDate.getFullYear();
 
   var inHoaDon = {
     loaiXe: `${selectCarType()}`,
     soKM: `${soKM}`,
     thoiGianCho: `${thoiGianCho}`,
-    tongCong: `${tinhTien()}`,
+    tongCong: `${tinhTien()} vnđ`,
   };
-  document.querySelector("#inHoaDon").innerHTML = `
-    <tr class="table-active">
-      <td>${inHoaDon.loaiXe}</td>
-      <td>${inHoaDon.soKM}</td>
-      <td>${inHoaDon.thoiGianCho}</td>
-      <td>${inHoaDon.tongCong}</td>
-    </tr>`;
+  document.querySelector("#date").innerHTML = `${date}/${month + 1}/${year}`;
+  document.querySelector("#loaiXe").innerHTML = inHoaDon.loaiXe;
+  document.querySelector("#soKm").innerHTML = inHoaDon.soKM;
+  document.querySelector("#tgCho").innerHTML = inHoaDon.thoiGianCho;
+  document.querySelector("#tongCong").innerHTML = inHoaDon.tongCong;
 }
 
 function selectCarType() {

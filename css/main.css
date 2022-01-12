@@ -517,3 +517,28 @@ input[type=radio]:checked ~ label{
   display: none ;
  }
  /* End div thanh tien */
+
+
+/*
+Custom CSS
+*/
+
+.modal-header{
+  border-bottom: 1px dashed gray !important;
+  margin-bottom: 2px !important;
+}
+.border--dashed{
+  border-top: 1px dashed gray !important;
+  margin-top: 2px !important;
+}
+.modal-body{
+  border-top: 1px dashed gray !important;
+  /* border-bottom: 1px dashed gray !important; */
+  padding: 0 !important;
+}
+.modal__container{
+  border-bottom: 1px dashed gray !important;
+}
+.margin__tongcong{
+  margin-top: 16px;
+}
