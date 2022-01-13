@@ -1,4 +1,4 @@
-var nutTinhTien = document.querySelector('#nutTinhTien');
+var nutTinhTien = document.querySelector("#nutTinhTien");
 nutTinhTien.onclick = tinhTien;
 
 function tinhTien() {
@@ -7,7 +7,6 @@ function tinhTien() {
   var soKM = document.querySelector("#soKM").value;
   soKM = parseFloat(soKM);
   if (soKM === "") {
-    xuatGiaTien.innerHTML = "Number must be filled out";
     document.querySelector("#soKM").focus();
     return false;
   }
@@ -16,7 +15,6 @@ function tinhTien() {
   thoiGianCho = parseFloat(thoiGianCho);
   if (thoiGianCho === "") {
     document.querySelector("#thoiGianCho").focus();
-    alert("Waiting time must be filled out");
     return false;
   }
 
@@ -60,42 +58,19 @@ function tinhTien() {
       }
       break;
   }
-
+  
   xuatGiaTien.innerHTML = parseFloat(tongTien);
-  return tongTien;
-}
-
-
-// var nutInHoaDon = document.querySelector('#nutInHoaDon');
-// nutInHoaDon.onclick = inHoaDon;
-document.querySelector('#nutInHoaDon').onclick =  function() {
-  var soKM = document.querySelector("#soKM").value;
-  if (soKM === "") { 
-    document.querySelector("#soKM").focus();
-    return false;
-  }
-
-  var thoiGianCho = document.querySelector("#thoiGianCho").value;
-  if (thoiGianCho === "") {
-    document.querySelector("#thoiGianCho").focus();
-    return false;
-  }
   var getDate = new Date();
   var date = getDate.getDate();
   var month = getDate.getMonth();
   var year = getDate.getFullYear();
 
-  var inHoaDon = {
-    loaiXe: `${selectCarType()}`,
-    soKM: `${soKM}`,
-    thoiGianCho: `${thoiGianCho}`,
-    tongCong: `${tinhTien()} vnđ`,
-  };
+  // In hoá đơn
   document.querySelector("#date").innerHTML = `${date}/${month + 1}/${year}`;
-  document.querySelector("#loaiXe").innerHTML = inHoaDon.loaiXe;
-  document.querySelector("#soKm").innerHTML = inHoaDon.soKM;
-  document.querySelector("#tgCho").innerHTML = inHoaDon.thoiGianCho;
-  document.querySelector("#tongCong").innerHTML = inHoaDon.tongCong;
+  document.querySelector("#loaiXe").innerHTML = loaiXe;
+  document.querySelector("#soKm").innerHTML = soKM;
+  document.querySelector("#tgCho").innerHTML = thoiGianCho;
+  document.querySelector("#tongCong").innerHTML = tongTien;
 }
 
 function selectCarType() {
