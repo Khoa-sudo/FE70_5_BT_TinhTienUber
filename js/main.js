@@ -1,31 +1,4 @@
 var mangThongBao = ["Vui lòng nhập số Kilomet", "Vui lòng nhập thời gian chờ"];
-function kiemTraNhap(idField,idThongBao,indexChuoiTB){
-  var valueField = getMyEle(idField).value;
-  var thongBao = getMyEle(idThongBao);
-  if(valueField === ""){
-    thongBao.innerHTML = mangThongBao[indexChuoiTB];
-  }
-}
-// function kiemTraNhapKm() {
-//   var soKM = document.querySelector("#soKM").value;
-//   var thongBaoKm = document.getElementById("thongBaoSoKm");
-//   if (soKM === "") {
-//     thongBaoKm.innerHTML = mangThongBao[0];
-//     document.querySelector("#soKM").focus();
-//   }
-//   soKM = parseFloat(soKM);
-//   return soKM;
-// }
-
-// function kiemTraNhapTgCho() {
-//   var thoiGianCho = document.querySelector("#thoiGianCho").value;
-//   var thongBaoTgCho = document.getElementById("thongBaoTgCho");
-//   if (thoiGianCho === "") {
-//     thongBaoTgCho.innerHTML = mangThongBao[1];
-//     document.querySelector("#thoiGianCho").focus();
-//   }
-//   return thoiGianCho;
-// }
 
 document.querySelector("#nutTinhTien").addEventListener("click", function () {
   var xuatGiaTien = document.querySelector("#xuatTien");
