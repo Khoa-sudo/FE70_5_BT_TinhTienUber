@@ -34,6 +34,7 @@ document.querySelector("#nutTinhTien").addEventListener("click", function () {
   if (soKM === "") {
     thongBaoKm.innerHTML = mangThongBao[0];
     document.querySelector("#soKM").focus();
+    return false;
   }
   soKM = parseFloat(soKM);
 
@@ -42,6 +43,7 @@ document.querySelector("#nutTinhTien").addEventListener("click", function () {
   if (thoiGianCho === "") {
     thongBaoTgCho.innerHTML = mangThongBao[1];
     document.querySelector("#thoiGianCho").focus();
+    return false;
   }
   
   //Chọn loại xe
@@ -98,6 +100,25 @@ document.querySelector("#nutTinhTien").addEventListener("click", function () {
   document.querySelector("#tgCho").innerHTML = thoiGianCho;
   document.querySelector("#tongCong").innerHTML = tongTien;
 });
+
+
+function selectCarType() {
+  var result;
+  var uberX = document.querySelector("#uberX").checked;
+  var uberSUV = document.querySelector("#uberSUV").checked;
+  var uberBlack = document.querySelector("#uberBlack").checked;
+
+  if (uberX) {
+    result = "Uber X";
+  } else if (uberSUV) {
+    result = "Uber SUV";
+  } else if (uberBlack) {
+    result = "Uber Black";
+  }
+
+  return result;
+}
+
 
 /*
 var nutTinhTien = document.querySelector("#nutTinhTien");
@@ -177,19 +198,4 @@ function tinhTien() {
 }
 */
 
-function selectCarType() {
-  var result;
-  var uberX = document.querySelector("#uberX").checked;
-  var uberSUV = document.querySelector("#uberSUV").checked;
-  var uberBlack = document.querySelector("#uberBlack").checked;
 
-  if (uberX) {
-    result = "Uber X";
-  } else if (uberSUV) {
-    result = "Uber SUV";
-  } else if (uberBlack) {
-    result = "Uber Black";
-  }
-
-  return result;
-}
